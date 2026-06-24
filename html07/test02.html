@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Exercice de programmation">
+  <meta name="author" content="Ghislain Coutu">
+  <link rel="stylesheet" href="styles.css">
+  <title>ASP.NET</title>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div>
+        <p class="themetitle">ASP.NET 8.0</p>
+      </div>
+      <div>
+        <p class="subtitle">Programmation d’une application Web (CRUD)</p>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <h2>Produits</h2>
+      <p>Programmation de l’interface effectuée en HTML, JavaScript et CSS, sans cadre d’applications.</p>
+      <h3>Ajouter ou modifier un produit</h3>
+      <div>
+        <input type="text" id="name45" placeholder="Nom">
+        <input type="number" id="price45" placeholder="Prix">
+        <button onclick="addProduct()">Enregistrer</button>
+      </div>
+      <h3>Afficher les produits</h3>
+      <button onclick="loadProducts()">Afficher les produits</button>
+      <table id="table45">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Prix</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+  <footer></footer>
+  <script src="test02.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+* {
+  box-sizing: border-box
+}
+
+body {
+  margin: 0 0 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color: #333;
+  background-color: #eee
+}
+
+p {
+  margin: 0 0 6px;
+}
+
+input {
+  padding: 4px;
+  margin: 0 5px 0 0;
+  border: 1px solid #666;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem
+}
+
+select {
+  padding: 4px;
+  margin: 0 5px 0 0;
+  border: 1px solid #666;
+  background-color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem
+}
+
+button {
+  padding: 3px;
+  margin: 0 5px 0 0;
+  min-width: 120px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem
+}
+
+header .container {
+  margin: 0 auto;
+  padding: 10px;
+  max-width: 1000px;
+  min-width: 280px;
+  background-color: #ddf
+}
+
+header .container .themetitle {
+  margin: 0 0 8px;
+  padding: 0;
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 3rem
+}
+
+header .container .subtitle {
+  margin: 0 0 8px;
+  padding: 0;
+  font-size: 1.3rem;
+  line-height: 1.4rem
+}
+
+main .container {
+  margin: 0 auto;
+  padding: 10px;
+  max-width: 1000px;
+  min-width: 280px;
+  min-height: 300px;
+  background-color: #fff
+}
+
+main .container h2 {
+  margin: 12px 0 8px;
+  font-size: 2rem
+}
+
+main .container h3 {
+  margin: 12px 0 8px;
+  font-size: 1.6rem
+}
+
+main table {
+  margin: 12px 0 0;
+  width: 100%;
+  border-collapse: collapse;
+  border: none;
+  background-color: #eef
+}
+
+main table th, main table td {
+  padding: 5px;
+  border: none
+}
+
+main table thead {
+  color: #fff;
+  background-color: #000
+}
