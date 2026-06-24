@@ -70,7 +70,6 @@ async function deleteProduct(id) {
 function editProduct(id, name, price) {
   document.getElementById("name45").value = name;
   document.getElementById("price45").value = price;
-  // Remplace le bouton "Enregistrer" par "Mettre à jour"
   const btn = document.querySelector("button[onclick='addProduct()']");
   btn.textContent = "Mettre à jour";
   btn.onclick = () => updateProduct(id);
@@ -78,7 +77,7 @@ function editProduct(id, name, price) {
 
 async function updateProduct(id) {
   const updated = {
-    id: id,   // ← obligatoire pour ASP.NET
+    id: id,
     name: document.getElementById("name45").value,
     price: parseFloat(document.getElementById("price45").value)
   };
@@ -92,7 +91,6 @@ async function updateProduct(id) {
       throw new Error("Erreur lors de la mise à jour.");
     }
     console.log("Produit mis à jour :", id);
-    // Remettre le bouton en mode "Ajouter"
     const btn = document.querySelector("button[onclick]");
     btn.textContent = "Enregistrer";
     btn.onclick = addProduct;
