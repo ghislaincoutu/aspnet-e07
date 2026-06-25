@@ -1,10 +1,5 @@
 # aspnet-e07 &mdash; Programmation d’une application ASP.NET CRUD
 
-## Commande Git pour importer les fichiers en environnement local
-```sh
-git clone ssh://dev2601@192.168.56.161/opt/git/aspnet-e07.git
-```
-
 ## Création des fichiers ASP.NET
 À partir du dossier `aspnet-e07`, exécuter les commandes suivantes :
 ```sh
