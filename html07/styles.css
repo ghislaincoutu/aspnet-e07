@@ -1,7 +1,6 @@
 * {
   box-sizing: border-box
 }
-
 body {
   margin: 0 0 20px;
   font-family: Arial, Helvetica, sans-serif;
@@ -9,28 +8,24 @@ body {
   color: #333;
   background-color: #eee
 }
-
 p {
   margin: 0 0 6px;
 }
-
 input {
   padding: 4px;
-  margin: 0 5px 0 0;
+  margin: 0 5px 5px 0;
   border: 1px solid #666;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem
 }
-
 select {
   padding: 4px;
-  margin: 0 5px 0 0;
+  margin: 0 5px 5px 0;
   border: 1px solid #666;
   background-color: #fff;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem
 }
-
 button {
   padding: 3px;
   margin: 0 5px 0 0;
@@ -38,7 +33,6 @@ button {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem
 }
-
 header .container {
   margin: 0 auto;
   padding: 10px;
@@ -46,7 +40,6 @@ header .container {
   min-width: 280px;
   background-color: #ddf
 }
-
 header .container .themetitle {
   margin: 0 0 8px;
   padding: 0;
@@ -54,14 +47,12 @@ header .container .themetitle {
   font-weight: 700;
   line-height: 3rem
 }
-
 header .container .subtitle {
   margin: 0 0 8px;
   padding: 0;
   font-size: 1.3rem;
   line-height: 1.4rem
 }
-
 main .container {
   margin: 0 auto;
   padding: 10px;
@@ -70,31 +61,47 @@ main .container {
   min-height: 300px;
   background-color: #fff
 }
-
 main .container h2 {
   margin: 12px 0 8px;
   font-size: 2rem
 }
-
 main .container h3 {
   margin: 12px 0 8px;
   font-size: 1.6rem
 }
 
-main table {
-  margin: 12px 0 0;
+.table-container {
+  overflow-x: auto;
+}
+.table45 {
+  margin: 12px 0;
   width: 100%;
+  min-width: 700px;
   border-collapse: collapse;
   border: none;
   background-color: #eef
 }
-
-main table th, main table td {
-  padding: 5px;
-  border: none
-}
-
-main table thead {
+.table45 thead {
   color: #fff;
   background-color: #000
+}
+.table45 th {
+  padding: 5px;
+  border: 1px solid #000;
+}
+.table45 td {
+  padding: 5px;
+  border: 1px solid #ccf;
+}
+.table45 td:nth-child(1) {
+  width: 60px;
+  text-align: center;
+}
+.table45 td:nth-child(3) {
+  width: 120px;
+  text-align: right;
+}
+.table45 td:nth-child(4) {
+  width: 300px;
+  text-align: center;
 }
