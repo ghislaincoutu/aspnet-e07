@@ -12,7 +12,7 @@ dotnet new gitignore
 ## Port réservé à l’application aspnet-e07
 > 5754
 
-## Sous-répertoires et fichiers supplémentaires générés pour réaliser l’application
+## Sous-répertoires et fichiers supplémentaires générés pour programmer l’application
 ```
 /aspnet07/Controllers/ProductsControllers.cs
 /aspnet07/Data/ApplicationDbContext.cs
@@ -20,9 +20,9 @@ dotnet new gitignore
 ```
 
 ## Sous-répertoires reliés à l’application
-Voici tous les sous-répertoires reliés à l’application :
+Voici les sous-répertoires reliés à l’application :
 ```
-/home/dev2607/Documents/XD01/aspnet-e07/
+~/Documents/XD01/aspnet-e07/
 /etc/apache2/sites-available/
 /etc/systemd/system/
 /var/www/aspnet07/
@@ -79,7 +79,7 @@ dotnet tool install --global dotnet-ef
 ## Création des variables d’environnement temporaires
 À utiliser pour tester l’application `aspnet-e07`. Les variables d’environnement temporaires sont accessibles uniquement à partir du terminal où elles ont été créées.
 ```sh
-export database31=mydatabase
+export database31=aspnet07
 echo $database31
 export user31=myusername
 echo $user31
@@ -98,10 +98,10 @@ S’il faut modifier la structure de la base de données, dans ce cas supprimer 
 À partir du terminal, saisir les commandes suivantes :
 ```sh
 cd aspnet-e07/aspnet07
-dotnet run --urls="http://localhost:5754"
+dotnet run --urls="http://localhost:5000"
 ```
 L’application est disponible à partir de l’adresse URL suivante :
-http://localhost:5754/api/products
+http://localhost:5000/api/products
 
 ## Accès à l’application ASP.NET à partir de Apache
 Il ne faut pas que le serveur Web Kestrel (celui qui est intégré à ASP.NET Core) soit accessible directement depuis l’extérieur, comme un serveur Web public. Les fichiers doivent être localisés dans le sous-répertoire `/var/www/aspnet07`, et non dans le sous-répertoire `/var/www/html/aspnet07`.
@@ -178,7 +178,7 @@ SyslogIdentifier=aspnet07
 User=www-data
 Environment=ASPNETCORE_ENVIRONMENT=Development
 Environment=ASPNETCORE_URLS=http://localhost:5754
-Environment="database31=mydatabase"
+Environment="database31=aspnet07"
 Environment="user31=myusername"
 Environment="password31=mypassword"
 
