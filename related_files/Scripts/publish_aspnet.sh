@@ -5,6 +5,7 @@ function apply_pause() {
 }
 
 echo "Publication des fichiers ASP.NET sur le serveur Web local"
+echo "Ce script doit être exécuté en tant que super utilisateur (root)."
 apply_pause "Appuyer sur la touche [Retour] pour continuer..."
 
 # Source (so)

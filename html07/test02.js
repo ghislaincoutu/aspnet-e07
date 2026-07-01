@@ -1,4 +1,4 @@
-const API_URL = "https://192.168.56.167/api/products";
+const API_URL = "/api/products";
 
 async function loadProducts() {
   try {

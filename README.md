@@ -1,6 +1,6 @@
-# aspnet-e07 &mdash; Programmation d’une application ASP.NET (CRUD)
+# aspnet-e07 &mdash; Programmation d’une application Web (CRUD)
 
-## Création des fichiers ASP.NET
+## Création des fichiers ASP.NET Web API
 À partir du dossier `aspnet-e07`, exécuter les commandes suivantes :
 ```sh
 cd aspnet-e07
@@ -12,7 +12,7 @@ dotnet new gitignore
 ## Port réservé à l’application aspnet-e07
 > 5754
 
-## Sous-répertoires et fichiers supplémentaires générés pour réaliser l’excerice
+## Sous-répertoires et fichiers supplémentaires générés pour réaliser l’application
 ```
 /aspnet07/Controllers/ProductsControllers.cs
 /aspnet07/Data/ApplicationDbContext.cs
@@ -20,7 +20,7 @@ dotnet new gitignore
 ```
 
 ## Sous-répertoires reliés à l’application
-Voici tous les sous-répertoires reliées à l’application :
+Voici tous les sous-répertoires reliés à l’application :
 ```
 /home/dev2607/Documents/XD01/aspnet-e07/
 /etc/apache2/sites-available/
@@ -39,7 +39,7 @@ Exportation de la base de données.
 ```sh
 sudo mysqldump -u root -p --routines --triggers --events aspnet07 > aspnet07.sql
 ```
-Création de la procédure `reset_products()`.
+Création de la procédure `reset_products()` dans la base de données `aspnet07`.
 ```sql
 USE aspnet07;
 DELIMITER $$
@@ -54,7 +54,7 @@ DELIMITER ;
 ```
 Importation de la procédure `reset_products()`.
 ```sh
-sudo mysql -u root -p < procedure07.sql
+sudo mysql -u root -p < procedure07.01.sql
 ```
 Appel de la procédure `reset_products()`.
 ```sql
@@ -66,7 +66,7 @@ CALL reset_products();
 ## Installation des dépendances requises
 À partir du dossier `aspnet-e07/aspnet07`, exécuter les commandes suivantes :
 ```sh
-cd aspnet07
+cd aspnet-e07/aspnet07
 dotnet add package Pomelo.EntityFrameworkCore.MySql --version 8.0.0
 dotnet add package Microsoft.EntityFrameworkCore.Design --version 8.0.0
 ```
@@ -77,7 +77,7 @@ dotnet tool install --global dotnet-ef
 ```
 
 ## Création des variables d’environnement temporaires
-À utiliser pour tester l’exercice aspnet-e07. Les variables d’environnement temporaires sont accessibles uniquement à partir du terminal où elles ont été créées.
+À utiliser pour tester l’application `aspnet-e07`. Les variables d’environnement temporaires sont accessibles uniquement à partir du terminal où elles ont été créées.
 ```sh
 export database31=mydatabase
 echo $database31
@@ -92,7 +92,7 @@ echo $password31
 dotnet ef migrations add InitialCreate
 dotnet ef database update
 ```
-S’il faut modifier la structure de la base de données, dans ce cas supprimer la base de données existante et le dossier `aspnet06/Migrations`. Créer une nouvelle base de données et répéter la procédure de création d’une nouvelle migration _Entity Framework Core_.
+S’il faut modifier la structure de la base de données, dans ce cas supprimer la base de données existante et le dossier `aspnet07/Migrations`. Créer une nouvelle base de données et répéter la procédure de création d’une nouvelle migration _Entity Framework Core_.
 
 ## Activation de l’application
 À partir du terminal, saisir les commandes suivantes :
@@ -104,7 +104,27 @@ L’application est disponible à partir de l’adresse URL suivante :
 http://localhost:5754/api/products
 
 ## Accès à l’application ASP.NET à partir de Apache
-Il ne faut jamais laisser le serveur Web Kestrel (celui qui est intégré à ASP.NET Core) être accessible directement depuis l’extérieur, comme un serveur Web public. Les fichiers doivent être localisés dans le sous-répertoire `/var/www/aspnet07`, et non dans le sous-répertoire `/var/www/html/aspnet07`.
+Il ne faut pas que le serveur Web Kestrel (celui qui est intégré à ASP.NET Core) soit accessible directement depuis l’extérieur, comme un serveur Web public. Les fichiers doivent être localisés dans le sous-répertoire `/var/www/aspnet07`, et non dans le sous-répertoire `/var/www/html/aspnet07`.
+
+## Configuration du serveur Apache
+Dans le fichier `/etc/apache2/sites-available/default-ssl.conf`, ajouter les directives `ProxyPass` et `ProxyPassReverse`.
+```conf
+<VirtualHost *:443>
+    ServerName 192.168.56.164
+
+    SSLEngine on
+    SSLCertificateFile /etc/ssl/certs/apache-selfsigned.crt
+    SSLCertificateKeyFile /etc/ssl/private/apache-selfsigned.key
+
+    ProxyPreserveHost On
+    # Application aspnet-e07
+    ProxyPass /api/products http://127.0.0.1:5754/api/products
+    ProxyPassReverse /api/products http://127.0.0.1:5754/api/products
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+```
 
 ## Publication de l’application ASP.NET sur un serveur Web
 À partir du terminal, saisir les commandes suivantes :
@@ -173,7 +193,7 @@ sudo systemctl start aspnet07
 sudo systemctl status aspnet07
 ```
 
-## Commandes curl (Client URL)
+## Commandes curl (Client URL) à utiliser pour tester la base de données
 Créer un nouvel enregistrement :
 ```sh
 curl -X 'POST' 'http://localhost:5754/api/products' -H 'Content-Type: application/json' -d '{"Name":"Table","Price":"120.98"}'
