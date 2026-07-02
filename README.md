@@ -194,15 +194,19 @@ sudo systemctl status aspnet07
 ```
 
 ## Commandes curl (Client URL) à utiliser pour tester la base de données
-Créer un nouvel enregistrement :
-```sh
-curl -X 'POST' 'http://localhost:5754/api/products' -H 'Content-Type: application/json' -d '{"Name":"Table","Price":"120.98"}'
-```
 Lire tous les enregistrements :
 ```sh
-curl -X 'GET' 'http://localhost:5754/api/products' -H 'accept: application/json'
+curl -X 'GET' 'http://localhost:5000/api/products' -H 'accept: application/json'
+```
+Créer un nouvel enregistrement :
+```sh
+curl -X 'POST' 'http://localhost:5000/api/products' -H 'Content-Type: application/json' -d '{"Name":"Table","Price":"120.98"}'
 ```
 Supprimer un enregistrement :
 ```sh
-curl -X 'DELETE' 'http://localhost:5754/api/products/1' -H 'accept: */*'
+curl -X 'DELETE' 'http://localhost:5000/api/products/1' -H 'accept: */*'
+```
+Réinitialiser la base de données MySQL :
+```sh
+curl -X 'POST' 'http://localhost:5000/api/products/reset'
 ```

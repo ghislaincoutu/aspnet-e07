@@ -53,5 +53,13 @@ namespace aspnet07.Controllers
             await _context.SaveChangesAsync();
             return NoContent();
         }
+
+        [HttpPost("reset")]
+        public async Task<IActionResult> ResetProducts()
+        {
+            await _context.Database.ExecuteSqlRawAsync("CALL reset_products();");
+            return Ok(new { message = "Produits réinitialisés." });
+        }
+
     }
 }
