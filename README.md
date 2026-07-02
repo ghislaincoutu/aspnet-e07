@@ -1,5 +1,7 @@
 # aspnet-e07 &mdash; Programmation d’une application Web (CRUD)
 
+<img src="related-files/medias/aspnet-e07.png" alt="" style="max-width:1000px;">
+
 ## Création des fichiers ASP.NET Web API
 À partir du dossier `aspnet-e07`, exécuter les commandes suivantes :
 ```sh
@@ -144,6 +146,8 @@ Appliquer les permissions suivantes :
 ```sh
 sudo chown -R www-data:www-data /var/www/aspnet07
 ```
+> Bogue à résoudre : Après avoir copié les nouveaux fichiers ASP.NET dans le dossier `/var/www/aspnet07`, il faut redémarrer la machine virtuelle pour que l’application fonctionne à nouveau.
+
 Tester l’activation de l’application :
 ```sh
 cd /var/www/aspnet
