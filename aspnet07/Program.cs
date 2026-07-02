@@ -2,7 +2,8 @@ using aspnet07.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-var raw = builder.Configuration.GetConnectionString("DefaultConnection");
+var raw = builder.Configuration.GetConnectionString("DefaultConnection")
+    ?? throw new InvalidOperationException("Missing DefaultConnection in appsettings.json");
 
 var connectionString = raw
 .Replace("{database31}", Environment.GetEnvironmentVariable("database31"))
