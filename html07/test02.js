@@ -99,3 +99,14 @@ async function updateProduct(id) {
     console.error(error);
   }
 }
+
+// Réinitialisation de la base de données
+document.getElementById("resetDatabase").addEventListener("click", async () => {
+  if (!confirm("Voulez-vous vraiment réinitialiser la base de données?")) return;
+  const response = await fetch("/api/products/reset", {
+    method: "POST"
+  });
+  const result = await response.json();
+  alert(result.message);
+  location.reload();
+});

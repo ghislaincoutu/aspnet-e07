@@ -1,6 +1,6 @@
 # aspnet-e07 &mdash; Programmation d’une application Web (CRUD)
 
-<img src="related-files/medias/aspnet-e07.png" alt="" style="max-width:1000px;">
+<img src="related-files/medias/aspnet-e07.png" alt="Aperçu de l’interface" style="max-width:1000px;">
 
 ## Création des fichiers ASP.NET Web API
 À partir du dossier `aspnet-e07`, exécuter les commandes suivantes :
