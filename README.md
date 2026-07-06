@@ -10,6 +10,19 @@ cd aspnet07
 dotnet new gitignore
 ```
 
+## Installation des dépendances requises
+À partir du dossier `aspnet-e07/aspnet07`, exécuter les commandes suivantes :
+```sh
+cd aspnet-e07/aspnet07
+dotnet add package Pomelo.EntityFrameworkCore.MySql --version 8.0.0
+dotnet add package Microsoft.EntityFrameworkCore.Design --version 8.0.0
+```
+
+## Installation de l’application dotnet-ef
+```sh
+dotnet tool install --global dotnet-ef
+```
+
 ## Port réservé à l’application aspnet-e07
 > 5754
 
@@ -62,19 +75,6 @@ Appel de la procédure `reset_products()`.
 sudo mysql -u root -p
 USE aspnet07;
 CALL reset_products();
-```
-
-## Installation des dépendances requises
-À partir du dossier `aspnet-e07/aspnet07`, exécuter les commandes suivantes :
-```sh
-cd aspnet-e07/aspnet07
-dotnet add package Pomelo.EntityFrameworkCore.MySql --version 8.0.0
-dotnet add package Microsoft.EntityFrameworkCore.Design --version 8.0.0
-```
-
-## Installation de l’application dotnet-ef
-```sh
-dotnet tool install --global dotnet-ef
 ```
 
 ## Création des variables d’environnement temporaires
@@ -196,7 +196,7 @@ sudo systemctl start aspnet07
 sudo systemctl status aspnet07
 ```
 
-## Commandes curl (Client URL) à utiliser pour tester la base de données
+## Commandes _curl_ à utiliser pour tester la base de données
 Lire tous les enregistrements :
 ```sh
 curl -X 'GET' 'http://localhost:5000/api/products' -H 'accept: application/json'
