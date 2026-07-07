@@ -70,6 +70,12 @@ Importation de la procédure `reset_products()`.
 ```sh
 sudo mysql -u root -p < procedure07.01.sql
 ```
+Ajustement des permissions si nécessaire.
+```sql
+sudo mysql -u root -p
+GRANT EXECUTE ON `aspnet07`.* TO 'myusername'@'localhost';
+FLUSH PRIVILEGES;
+```
 Appel de la procédure `reset_products()`.
 ```sql
 sudo mysql -u root -p
@@ -145,7 +151,7 @@ Appliquer les permissions suivantes :
 ```sh
 sudo chown -R www-data:www-data /var/www/aspnet07
 ```
-> Bogue à résoudre : Après avoir copié les nouveaux fichiers ASP.NET dans le dossier `/var/www/aspnet07`, il faut redémarrer la machine virtuelle pour que l’application fonctionne à nouveau.
+Après avoir copié les nouveaux fichiers ASP.NET dans le dossier `/var/www/aspnet07`, il faut redémarrer le serveur pour que l’application fonctionne à nouveau.
 
 Tester l’activation de l’application :
 ```sh
@@ -199,17 +205,17 @@ sudo systemctl status aspnet07
 ## Commandes _curl_ à utiliser pour tester la base de données
 Lire tous les enregistrements :
 ```sh
-curl -X 'GET' 'http://localhost:5000/api/products' -H 'accept: application/json'
+curl -X GET 'http://localhost:5000/api/products' -H 'accept: application/json'
 ```
 Créer un nouvel enregistrement :
 ```sh
-curl -X 'POST' 'http://localhost:5000/api/products' -H 'Content-Type: application/json' -d '{"Name":"Table","Price":"120.98"}'
+curl -X POST 'http://localhost:5000/api/products' -H 'Content-Type: application/json' -d '{"Name":"Table","Price":"120.98"}'
 ```
 Supprimer un enregistrement :
 ```sh
-curl -X 'DELETE' 'http://localhost:5000/api/products/1' -H 'accept: */*'
+curl -X DELETE 'http://localhost:5000/api/products/1' -H 'accept: */*'
 ```
 Réinitialiser la base de données MySQL :
 ```sh
-curl -X 'POST' 'http://localhost:5000/api/products/reset'
+curl -X POST 'http://localhost:5000/api/products/reset'
 ```
