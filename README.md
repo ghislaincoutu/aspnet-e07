@@ -70,17 +70,25 @@ Importation de la procédure `reset_products()`.
 ```sh
 sudo mysql -u root -p < procedure07.01.sql
 ```
-Ajustement des permissions si nécessaire.
+Ajustement des permissions au niveau des procédures, si nécessaire.
 ```sql
 sudo mysql -u root -p
-GRANT EXECUTE ON `aspnet07`.* TO 'myusername'@'localhost';
+GRANT EXECUTE ON 'aspnet07'.* TO 'myusername'@'localhost';
 FLUSH PRIVILEGES;
+SHOW GRANTS FOR 'myusername'@'localhost';
 ```
 Appel de la procédure `reset_products()`.
 ```sql
 sudo mysql -u root -p
 USE aspnet07;
 CALL reset_products();
+```
+Ajustement des permissions en environnement de production.
+```sql
+sudo mysql -u root -p
+GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER, CREATE TEMPORARY TABLES ON 'aspnet07'.* TO 'myusername'@'localhost';
+FLUSH PRIVILEGES;
+SHOW GRANTS FOR 'myusername'@'localhost';
 ```
 
 ## Création des variables d’environnement temporaires
