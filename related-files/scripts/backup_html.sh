@@ -12,4 +12,4 @@ so=/var/www/html/d003/aspnet-e07/
 # Destination (de)
 de=/home/dev2607/Documents/XD01/aspnet-e07/html07/
 
-rsync -av $so $de
+rsync -av --delete $so $de
