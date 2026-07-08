@@ -110,3 +110,12 @@ document.getElementById("resetDatabase").addEventListener("click", async () => {
   alert(result.message);
   location.reload();
 });
+
+const form = document.getElementById("productForm");
+form.addEventListener("submit", function (event) {
+    if (!form.checkValidity()) {
+        return; // Le navigateur affiche les messages de validation
+    }
+    event.preventDefault();
+    addProduct();
+});
