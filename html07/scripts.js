@@ -14,7 +14,7 @@ async function loadProducts() {
       tr.innerHTML = `
         <td>${p.id}</td>
         <td>${p.name}</td>
-        <td>${p.price} $</td>
+        <td>$${Number(p.price).toFixed(2)} $</td>
         <td>
           <button onclick="editProduct(${p.id}, '${p.name}', ${p.price})">Modifier</button>
           <button onclick="deleteProduct(${p.id})">Supprimer</button>
@@ -109,13 +109,4 @@ document.getElementById("resetDatabase").addEventListener("click", async () => {
   const result = await response.json();
   alert(result.message);
   location.reload();
-});
-
-const form = document.getElementById("productForm");
-form.addEventListener("submit", function (event) {
-    if (!form.checkValidity()) {
-        return; // Le navigateur affiche les messages de validation
-    }
-    event.preventDefault();
-    addProduct();
 });

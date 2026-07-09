@@ -27,15 +27,16 @@
       <h2>Produits</h2>
       <p>Programmation de l’interface effectuée en HTML, JavaScript et CSS, sans cadre d’applications.</p>
       <h3>Ajouter ou modifier un produit</h3>
-      <div>
+      <section class="form45">
         <form id="productForm">
-          <label for="name45">Nom :</label>
-          <input type="text" id="name45" required>
-          <label for="price45">Prix :</label>
-          <input type="number" id="price45" step="0.01" required>
-          <button type="submit">Enregistrer</button>
+          <label for="name45">Nom*</label>
+          <input type="text" id="name45">
+          <label for="price45">Prix*</label>
+          <input type="number" id="price45" step="0.01">
+          <p style="margin: 6px 0;">* Tous les champs sont obligatoires.</p>
+          <button onclick="addProduct()">Enregistrer</button>
         </form>
-      </div>
+      </section>
       <h3>Afficher les produits</h3>
       <button onclick="loadProducts()">Afficher</button>
       <div class="table-container">
@@ -57,7 +58,7 @@
             </tr>
           </tbody>
         </table>
-        <h3>Réinitialiser la base de données</h3>
+        <h3>Réinitialiser la base de données MySQL</h3>
         <p>Suppression de tous les enregistrements et rétablissement des deux premiers enregistrements à titre d’exemple.</p>
         <div class="reset"><button id="resetDatabase">Réinitialiser</button></div>
         <h3>Autres tests</h3>
