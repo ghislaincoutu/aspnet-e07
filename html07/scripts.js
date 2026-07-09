@@ -110,3 +110,7 @@ document.getElementById("resetDatabase").addEventListener("click", async () => {
   alert(result.message);
   location.reload();
 });
+
+window.addEventListener("DOMContentLoaded", () => {
+  loadProducts();
+});
