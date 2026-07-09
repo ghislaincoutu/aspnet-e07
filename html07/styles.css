@@ -1,3 +1,8 @@
+:root {
+  --color01: hsl(132, 70%, 90%); /* Saturation: 70*/
+  --color02: hsl(132, 10%, 90%); /* Saturation: 10 */
+}
+
 * {
   box-sizing: border-box
 }
@@ -9,7 +14,7 @@ body {
   background-color: #eee
 }
 p {
-  margin: 0 0 6px;
+  margin: 0 0 6px 0;
 }
 input {
   padding: 4px;
@@ -38,18 +43,17 @@ header .container {
   padding: 10px;
   max-width: 1000px;
   min-width: 280px;
-  background-color: #ddf
+  background-color: var(--color01);
 }
 header .container .themetitle {
-  margin: 0 0 8px;
+  margin: 0 0 6px 0;
   padding: 0;
   font-size: 2.6rem;
   font-weight: 700;
   line-height: 2.8rem
 }
 header .container .subtitle {
-  margin: 0 0 8px;
-  padding: 0;
+  margin: 0;
   font-size: 1.3rem;
   line-height: 1.4rem
 }
@@ -69,16 +73,20 @@ main .container h3 {
   margin: 12px 0 6px 0;
   font-size: 1.6rem
 }
+main .technologies {
+  font-size: 1.4rem;
+  text-align: right;
+}
 main .reset {
   margin: 10px 0;
   padding: 8px;
-  background-color: #EDDDFE;
+  background-color: var(--color02);
 }
 
 .form45 {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   padding: 10px;
-  background-color: #EDDDFE;
+  background-color: var(--color02);
 }
 .form45 label {
   display: inline-block;
@@ -94,7 +102,7 @@ main .reset {
   min-width: 700px;
   border-collapse: collapse;
   border: none;
-  background-color: #eef
+  background-color: var(--color02);
 }
 .table45 thead {
   color: #fff;
@@ -106,7 +114,7 @@ main .reset {
 }
 .table45 td {
   padding: 5px;
-  border: 1px solid #ccf;
+  border: 1px solid #666;
 }
 .table45 td:nth-child(1) {
   width: 60px;
