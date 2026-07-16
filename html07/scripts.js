@@ -14,7 +14,7 @@ async function loadProducts() {
       tr.innerHTML = `
         <td>${p.id}</td>
         <td>${p.name}</td>
-        <td>$${Number(p.price).toFixed(2)} $</td>
+        <td>${Number(p.price).toFixed(2)} $</td>
         <td>
           <button onclick="editProduct(${p.id}, '${p.name}', ${p.price})">Modifier</button>
           <button onclick="deleteProduct(${p.id})">Supprimer</button>
@@ -54,7 +54,7 @@ async function addProduct() {
 async function deleteProduct(id) {
   if (!confirm("Supprimer ce produit ?")) return;
   try {
-    const response = await fetch(`${API_URL}/${id}`, {
+    const response = await fetch(`{API_URL}/${id}`, {
       method: "DELETE"
     });
     if (!response.ok) {
