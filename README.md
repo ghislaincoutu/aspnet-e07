@@ -53,11 +53,11 @@ Exportation de la base de données.
 ```sh
 sudo mysqldump -u root -p --routines --triggers --events aspnet07 > aspnet07.sql
 ```
-Création de la procédure `reset_products()` dans la base de données `aspnet07`.
+Création de la procédure `reset_database()` dans la base de données `aspnet07`.
 ```sql
 USE aspnet07;
 DELIMITER $$
-CREATE PROCEDURE reset_products()
+CREATE PROCEDURE reset_database()
 BEGIN
     TRUNCATE TABLE Products;
     INSERT INTO Products (Name, Price) VALUES
@@ -66,7 +66,7 @@ BEGIN
 END $$
 DELIMITER ;
 ```
-Importation de la procédure `reset_products()`.
+Importation de la procédure `reset_database()`.
 ```sh
 sudo mysql -u root -p < procedure07.01.sql
 ```
@@ -77,11 +77,11 @@ GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER, CREATE TEMPORA
 FLUSH PRIVILEGES;
 SHOW GRANTS FOR 'myusername'@'localhost';
 ```
-Appel de la procédure `reset_products()`.
+Appel de la procédure `reset_database()`.
 ```sql
 sudo mysql -u root -p
 USE aspnet07;
-CALL reset_products();
+CALL reset_database();
 ```
 
 ## Création des variables d’environnement temporaires

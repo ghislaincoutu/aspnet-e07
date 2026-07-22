@@ -1,6 +1,6 @@
 USE aspnet07;
 DELIMITER $$
-CREATE PROCEDURE reset_products()
+CREATE PROCEDURE reset_database()
 BEGIN
     TRUNCATE TABLE Products;
     INSERT INTO Products (Name, Price) VALUES

@@ -71,7 +71,7 @@ UNLOCK TABLES;
 --
 -- Dumping routines for database 'aspnet07'
 --
-/*!50003 DROP PROCEDURE IF EXISTS `reset_products` */;
+/*!50003 DROP PROCEDURE IF EXISTS `reset_database` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -81,7 +81,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `reset_products`()
+CREATE DEFINER=`root`@`localhost` PROCEDURE `reset_database`()
 BEGIN
     TRUNCATE TABLE Products;
     INSERT INTO Products (Name, Price) VALUES
@@ -103,4 +103,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-07-07 18:43:49
+-- Dump completed on 2026-07-22 11:49:38
