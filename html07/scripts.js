@@ -54,7 +54,7 @@ async function addProduct() {
 async function deleteProduct(id) {
   if (!confirm("Supprimer ce produit ?")) return;
   try {
-    const response = await fetch(`{API_URL}/${id}`, {
+    const response = await fetch(`${API_URL}/${id}`, {
       method: "DELETE"
     });
     if (!response.ok) {
