@@ -90,9 +90,27 @@ main .reset {
   padding: 10px;
   background-color: var(--color02);
 }
-.form45 label {
-  display: inline-block;
-  width: 60px;
+.form45 .row45 {
+  display: flex;
+  column-gap: 20px;
+}
+.form45 .col01 {
+  margin-bottom: 8px;
+  width: 60%;
+}
+.form45 .col02 {
+  margin-bottom: 5px;
+  width: 40%;
+}
+.form45 .row45 label {
+  display: block;
+  margin-bottom: 4px;
+}
+.form45 .col01 input {
+  width: 100%;
+}
+.form45 .col02 input {
+  width: 100px
 }
 
 .table-container {
@@ -139,4 +157,18 @@ footer .container {
   color: #fff;
   background-color: #000;
   text-align: center;
+}
+
+
+@media (max-width: 600px) {
+  main .container .technologies {
+    text-align: left;
+  }
+  .form45 .row45 {
+    display: block;
+  }
+  .form45 .row45 .col01,
+  .form45 .row45 .col02 {
+    width: 100%;
+  }
 }
