@@ -1,6 +1,8 @@
 :root {
-  --color01: hsl(132, 70%, 90%); /* Saturation: 70*/
-  --color02: hsl(132, 10%, 90%); /* Saturation: 10 */
+  --color01: hsl(132, 70%, 90%);
+  /* Saturation: 70*/
+  --color02: hsl(132, 10%, 90%);
+  /* Saturation: 10 */
 }
 
 * {
@@ -126,5 +128,15 @@ main .reset {
 }
 .table45 td:nth-child(4) {
   width: 300px;
+  text-align: center;
+}
+
+footer .container {
+  margin: 0 auto;
+  padding: 10px;
+  max-width: 1000px;
+  min-width: 280px;
+  color: #fff;
+  background-color: #000;
   text-align: center;
 }
