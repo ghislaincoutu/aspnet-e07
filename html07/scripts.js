@@ -28,9 +28,15 @@ async function loadProducts() {
 }
 
 async function addProduct() {
+  const name = document.getElementById("name45").value.trim();
+  const price = parseFloat(document.getElementById("price45").value);
+  if (name === "" || isNaN(price)) {
+    alert("Veuillez remplir tous les champs correctement.");
+    return;
+  }
   const product56 = {
-    name: document.getElementById("name45").value,
-    price: parseFloat(document.getElementById("price45").value)
+    name: name,
+    price: price
   };
   try {
     const response = await fetch(API_URL, {
