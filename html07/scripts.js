@@ -50,8 +50,8 @@ async function addProduct() {
       throw new Error("Erreur lors de la création de l'enregistrement.");
     }
     const newProduct88 = await response.json();
-    console.log("Produit créé :", newProduct88);
     loadProducts();
+    resetForm();
   } catch (error) {
     console.error(error);
   }
@@ -66,7 +66,6 @@ async function deleteProduct(id) {
     if (!response.ok) {
       throw new Error("Erreur lors de la suppression.");
     }
-    console.log("Produit supprimé :", id);
     loadProducts();
   } catch (error) {
     console.error(error);
@@ -96,17 +95,25 @@ async function updateProduct(id) {
     if (!response.ok) {
       throw new Error("Erreur lors de la mise à jour.");
     }
-    console.log("Produit mis à jour :", id);
     const btn = document.querySelector("button[onclick]");
     btn.textContent = "Enregistrer";
     btn.onclick = addProduct;
     loadProducts();
+    resetForm();
   } catch (error) {
     console.error(error);
   }
 }
 
-// Réinitialisation de la base de données
+// Réinitialisation du formulaire après l'ajout ou la modification de données.
+function resetForm() {
+  document.getElementById("productForm").reset();
+  const btn = document.querySelector("#productForm button");
+  btn.textContent = "Enregistrer";
+  btn.onclick = addProduct;
+}
+
+// Réinitialisation de la base de données.
 document.getElementById("resetDatabase").addEventListener("click", async () => {
   if (!confirm("Voulez-vous vraiment réinitialiser la base de données?")) return;
   const response = await fetch("/api/products/reset", {
